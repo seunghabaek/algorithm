@@ -1,0 +1,18 @@
+[백준 알고리즘 문제]
+
+# 2588 (for문 사용)
+
+
+# input 
+a = int(input())
+b = list(input())
+n = len(b)
+c = ''
+
+# output
+for i in range(n):
+    c += b[i]
+    print(a*int(b[n-i-1]))
+    
+print(a*int(c))  
+
