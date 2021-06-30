@@ -1,7 +1,6 @@
 [백준 알고리즘 문제]
 
-# 2588 (for문 사용)
-
+num 2588 (for문 사용)
 
 # input 
 a = int(input())
@@ -14,5 +13,76 @@ for i in range(n):
     c += b[i]
     print(a*int(b[n-i-1]))
     
-print(a*int(c))  
+print(a*int(c)) 
 
+
+
+num 10950
+
+import sys
+# input 
+n = int(input())
+for i in range(n):
+    a,b = map(int, sys.stdin.readline().split())
+    print(a+b)
+
+
+
+num 10951 (몇개인지 모르는 input 두개를 받는 경우)
+
+import sys
+
+while 1:
+	try:                                                  # normal case
+		a,b = map(int, sys.stdin.readline().split())
+		print(a+b)
+	except:                                               # error case
+		break
+
+
+
+num 10952 (마지막 입력이 0 0 이 나오는 경우)
+
+import sys
+
+while 1:
+	a,b = map(int, sys.stdin.readline().split())
+	if a+b != 0:
+		print(a+b)
+	else:
+		break
+
+
+
+num 10953 (하나의 숫자 + 그만큼의 input)
+
+import sys
+
+n = int(input())
+for i in range(n):
+	a,b = map(int, sys.stdin.readline().split(','))
+	print(a+b)
+
+
+
+num 11021 (문자와 숫자가 공존 .format()사용)
+
+import sys
+
+n = int(input())
+
+for i in range(n):
+	a,b = map(int, sys.stdin.readline().split())
+	print('Case #{}: {}'.format(i+1, a+b))
+
+
+
+num 11022 (더 많은 문자와 숫자)
+
+import sys
+
+n = int(input())
+
+for i in range(n):
+	a,b = map(int, sys.stdin.readline().split())
+	print('Case #{}: {} + {} = {}'.format(i+1, a, b, a+b))
