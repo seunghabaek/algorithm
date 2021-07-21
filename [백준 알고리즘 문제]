@@ -294,4 +294,48 @@ for i in range(n):
 	else:
 		b = (a*(2*n-i)).rjust(n, ' ')
 		print(b)
-		
+
+
+
+num 2446 (주어진 배열에서 규칙성 찾기)
+
+n = int(input())
+a = str('*')
+c = 2*n
+
+for i in range(1, c):
+    if i <= n:
+        b = (a*(2*n-2*i+1)).rjust(c-i, ' ')
+        print(b)
+    else:
+        b = (a*(2*i-2*n+1)).rjust(i, ' ')
+        print(b)
+
+
+
+num 10991 (중간에 빈칸이 있는 * 입력 갯수만큼 출력)
+
+n = int(input())
+a = str('')
+
+for i in range(n):
+	a += '*'+' '
+	print(a.rjust(n+i+1, ' '))
+
+
+
+num 10992 (*규칙 찾아서 풀기 [첫번째:1개, 마지막:2n-1개, 가운데:2개])
+
+n = int(input())
+a = str('')
+
+for i in range(n):
+	if i == 0:
+		print(a.rjust(n+i, ' '))
+	elif (i>0) & (i<n-1):
+		b = a + (' ')*(2*i-1) + '*'
+		print(b.rjust(n+i, ' '))
+		b = ''
+	else:
+		c = a*(2*n-1)
+		print(c)
