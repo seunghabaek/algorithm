@@ -1,0 +1,46 @@
+[Dynamic Programming]
+-> using fibonachi sequence
+
+1. Recursion
+	def fib(n):
+		if n == 1 or n ==2:
+			result = 1
+		else:
+			result = fib(n-1) + fib(n-2)
+		return result
+
+	-> very inefficient. because of too many calculations
+
+2. Store (Memoize)
+	- need n+1 array <- store return value rather than computation
+
+	def fib_2(n, memo):    
+		if memo[n] is not None:
+		return memo[n]
+		if n == 1 or n == 2:
+			result = 1
+		else:
+			result = fib(n-1) + fib(n-2)
+			memo[n] = result
+		return result
+
+	def fib_memo(n):
+		memo = [None] * (n+1)
+		return fib_2(n, memo)
+
+		# memo is n+1 array that store value
+		# and memo needed to be null or 0 before beginning algorithm
+
+3. Bottom-up 
+	- similar with Memoize
+	- very fast
+
+def fib_bottom_up(n):
+	if n == 1 or n == 2:
+		return 1
+	bottom_up = [None] * (n+1)
+	bottom_up[1] = 1
+	bottom_up[2] = 1
+	for i in range(3, n+1):
+		bottom_up[i] = bottom_up[i-1] + bottom_up[i-2]
+	return bottom_up[n]
