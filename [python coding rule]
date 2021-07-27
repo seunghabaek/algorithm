@@ -1,0 +1,34 @@
+[python coding rule]
+1. ex) 보기 쉽고 좋은 코드
+PI = 3.14  # 원주율(파이)
+
+# 반지름이 r인 원의 둘레 계산
+def calculate_circumference(r):
+	return 2 * PI * r
+	
+# 반지름이 r인 원의 넓이 계산
+def calculate_area(r):
+	return PI * r * r
+	
+radius = 4 # 반지름
+print(calculate_circumference(radius))
+print(calculate_area(radius))
+
+radius = 8 # 반지름
+print(calculate_circumference(radius))
+print(calculate_area(radius))
+
+2. PEP 8 (python guide)
+	a. 이름규칙
+		i. 모든 변수와 함수 이름은 소문자로 쓰고 여러단어일 경우 _로 나눈다.
+		ii. 모든 상수 이름은 대문자로 쓰고 여러단어일 경우 _로 나눈다.
+		iii. 의미 있는 이름으로 사용한다.
+		iv. 화이트 스페이스(연산자 앞뒤로 띄어쓰기 등..)
+		v. 들여쓰기는 스페이스4번
+		vi. 함수 정의 위 아래로는 빈줄이 2줄씩.
+		vii. 괄호 바로 안에는 띄어쓰기 자제.
+		viii. 함수 이름과 괄호사이는 띄어쓰기 하지 말것.( def spam(x):)
+		ix. 쉼표 앞에는 띄어쓰기 하지 말것.
+		x. 지정 연산자 앞뒤로 띄어쓰기 한번씩.
+		xi. 연산자 앞뒤로 띄어쓰기 한번씩.
+		xii. 코멘트 앞에 띄어쓰기 최소 두개.(x = x + 1  # 코멘트)
