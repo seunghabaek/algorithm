@@ -86,3 +86,20 @@
 			   result = map(lambda a, b: a + b, list1, list2)
 			   # map 메서드는 각각의 원소에 적용할 때 사용.
 			   print(list(result))
+
+- 자주 사용되는 함수
+	- 순열과 조합 함수
+		- 순열
+			- ex > from itertools import permutations
+
+				   data = ['A', 'B', 'C']
+
+				   result = list(permutations(data, 3))
+				   print(result)
+
+		- 조합: 서로 다른 n개에서 순서에 상관 없이 서로 다른 r 개 선택
+
+	- counter
+		- 파이썬 collections 라이브러리의 Counter는 등장 횟수를 세는 기능을 제공.
+		- 리스트와 같은 반복 가능한 객체가 주어졌을 때 내부의 원소가 몇 번씩 등장했는지를 알려줌.
+		
