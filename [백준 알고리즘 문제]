@@ -339,3 +339,25 @@ for i in range(n):
 	else:
 		c = a*(2*n-1)
 		print(c)
+
+
+
+[dynamic programming]
+num 1463 (1 만들기-3,2로 나누기,-1)
+
+n = int(input())
+dp = [0]*(n+1)
+
+dp[1] = 0
+
+for i in range(2, n+1):
+	dp[i] = dp[i-1]+!
+	if i % 6 == 0:
+		dp[i] = min(dp[i], dp[i//3]+1, dp[i//2]+1)
+	elif i % 3 == 0:
+		dp[i] = min(dp[i], dp[i//3]+1)
+	elif i % 2 == 0:
+		dp[i] = min(dp[i], dp[i//2]+1)
+
+print(dp[n])
+
