@@ -81,3 +81,77 @@ def gcd(a,b):
         return(b, a % b)
     
 print(gcd(192, 162))
+
+#%%
+# DFS 예제
+def dfs(graph, v, visited):
+    #현재 노드를 방문 처리
+    visited[v] = True
+    print(v, end='')
+    # 현재 노드와 연결된 다른 노드를 재귀적으로 방문
+    for i in graph[v]:
+        if not visited[i]:
+            dfs(graph, i, visited)
+            
+# graph 초기화
+graph = [
+    [],
+    [2, 3, 8],
+    [1, 7],
+    [1, 4, 5],
+    [3, 5],
+    [3, 4],
+    [7],
+    [2, 6, 8],
+    [1, 7]
+]    # 각 노드에 연결된 노드를 리스트로 초기화
+
+# 각 노드가 방문된 정보를 초기화
+visited = [False] * 9
+
+dfs(graph, 1, visited)
+    
+#%%
+# BFS ex
+from collections import deque
+
+def bfs(graph, start, visited):
+    queue = deque([start])
+    # 현재 노드 방문 처리
+    visited[start] = True
+    # 큐가 빌 때까지 반복
+    while queue:
+        # 큐에서 하나의 원소를 뽑아 출력
+        v = queue.popleft()
+        print(v, end='') # 줄바꿈 원치 않는 출력
+        # 아직 방문하지 않은 인접한 원소들을 큐에 삽입
+        for i in graph[v]:
+            if not visited[i]:
+                queue.append(i)
+                visited[i] = True
+                
+graph = [
+    [],
+    [2, 3, 8],
+    [1, 7],
+    [1, 4, 5],
+    [3, 5],
+    [3, 4],
+    [7],
+    [2, 6, 8],
+    [1, 7]
+    ]
+
+visited = [False] * 9
+
+bfs(graph, 1, visited)
+
+#%%
+# 음료수 얼려먹기 문제
+def dfs(x, y):
+    # range inspection
+    if x <= -1 or x >= n or y <= -1 or y >= m:
+        return False
+    # 현재 노드를 아직 방문하지 않았다면
+    if graph[x][y] = 0:
+        graph[x][y] = 1
