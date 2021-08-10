@@ -38,3 +38,6 @@ for i in range(1, len(a)):
         else:
             break
 print(a)
+
+#%%
+# 퀵 정렬 알고리즘
