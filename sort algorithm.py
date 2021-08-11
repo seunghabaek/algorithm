@@ -83,3 +83,44 @@ print(quick_sort(array))
 
 #%%
 # 계수 정렬 알고리즘
+array = [7, 5, 9, 0, 3, 1, 6, 2, 9, 1, 4, 8, 0, 5, 2]
+a = [0] * (max(array) + 1)
+
+for x in array:
+    a[x] += 1 # 각 데이터에 해당하는 인덱스의 값 증가
+
+for i in range(len(a)): 
+    for j in range(a[i]):
+        print(i, end=' ')
+        
+#%%
+# 두 배열의 원소 교체 - not good
+n, k = 5,3
+a = list(input())
+b = list(input())
+a_list = []
+
+for i in range(k):
+    a_sum = 0
+    a[a.index(min(a))], b[b.index(max(b))] = max(b), min(a)
+    for j in a:
+        a_sum += int(j)
+    a_list.append(a_sum)
+
+print(max(a_list))
+
+# dongbin's - good
+n, k  = map(int,input().split())
+a = list(map(int, input().split()))
+b = list(map(int, input().split()))
+
+a.sort() # a ascend
+b.sort(Reverse=True) # b descend
+
+for i in range(k):
+    if a[i] < b[i]:
+        a[i], b[i] = b[i], a[i]
+    else:
+        break
+
+print(sum(a)) # sum of list a
