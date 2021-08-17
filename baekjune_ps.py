@@ -368,24 +368,38 @@ for i in range(2, n+1):
 print(dp[n])
 
 #%%
-# num 11726
+# num 11726 - 2xn 도형을 1x2, 2x1 도형으로 채우기
 
 n = int(input())
-
 dp = [0] * (n+1)
-dp[1] = 1
-dp[2] = 2
 
-if n >= 2:
-    for i in range(3, n+1):
+for i in range(1, n+1):
+    if i == 1:
+        dp[i] = 1
+    elif i == 2:
+        dp[i] =2
+    elif i >= 3:
         dp[i] = dp[i-1] + dp[i-2]
-    
-
-print(dp[n])
+        
+print(dp[n]%10007)
 
 #%%
-# num 11727
+# num 11727 - 2xn 2
 
+n = int(input())
+dp = [0] * (n+1)
+
+for i in range(1, n+1):
+    if i == 1:
+        dp[i] = 1
+    elif i ==2:
+        dp[i] = 3
+    else:
+        dp[i] = dp[i-1] + 2*dp[i-2]
+        
+print(dp[n]%10007)
+
+#%%
 # num 9095
 
 # num 10844
