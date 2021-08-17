@@ -367,6 +367,60 @@ for i in range(2, n+1):
 
 print(dp[n])
 
+#%%
+# num 11726
+
+n = int(input())
+
+dp = [0] * (n+1)
+dp[1] = 1
+dp[2] = 2
+
+if n >= 2:
+    for i in range(3, n+1):
+        dp[i] = dp[i-1] + dp[i-2]
+    
+
+print(dp[n])
+
+#%%
+# num 11727
+
+# num 9095
+
+# num 10844
+
+# num 11057
+
+# num 2193
+
+# num 9466
+
+# num 2156
+
+# num 11053
+
+# num 11055
+
+# num 11722
+
+# num 11054
+
+# num 1912
+
+# num 2579
+
+# num 1699
+
+# num 2133
+
+# num 9461
+
+# num 2225
+
+# num 2011
+
+# num 11052
 
 #%%
 # [이진 탐색]
@@ -397,5 +451,29 @@ while True:
     else:
         start = mid
 
+print(start)
+
+#%%
+# num 2805 (나무 자르기)
+def cut_tree(array, length):
+    total = 0
+    for x in array:
+        if x > length:
+            total += (x - length)
+    return total
+
+n, m = map(int, input().split())
+array = list(map(int, input().split()))
+
+start = 0
+end = 1000000000
+
+while (start < end-1):
+    mid = (start + end) // 2
+    tree_length = cut_tree(array, mid)
+    if tree_length < m:
+        end = mid
+    else:
+        start = mid
 print(start)
 
