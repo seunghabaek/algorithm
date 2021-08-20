@@ -471,8 +471,27 @@ print(dp[n])
 
 
 #%%
-# num 2156
+# num 2156 - 1로 만들기 복습.
 
+import sys
+
+n = int(input())
+p = list(int(sys.stdin.readline()) for _ in range(n))
+dp = [0] * (n+1)
+
+if n == 1: # index setting
+    print(p[0])
+else:
+    dp[1], dp[2] = p[0], p[0] + p[1]
+    
+    for i in range(3, n+1):
+        dp[i] = dp[i-2] + p[i-1]
+        dp[i] = max(dp[i], dp[i-1], dp[i-3] + p[i-2] + p[i-1])
+    
+    print(dp[n])
+
+
+#%%
 # num 11053
 
 # num 11055
