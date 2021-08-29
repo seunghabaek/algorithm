@@ -493,7 +493,22 @@ else:
 
 #%%
 # num 11053
+n = int(input())
+a = list(map(int, input().split()))
 
+dp = [0] * (n+1)
+
+for i in range(n):
+    if i == 0:
+        dp[i] = 1
+    else:
+        for j in range(i):
+            if (a[i] > a[j]) and (dp[i] < dp[j]):
+                dp[i] = dp[j]
+        dp[i] += 1
+
+print(max(dp))
+#%%
 # num 11055
 
 # num 11722
@@ -571,3 +586,17 @@ while (start < end-1):
         start = mid
 print(start)
 
+#%%
+# num 2110
+
+#%%
+# num 10815
+
+#%%
+# num 10816
+
+#%%
+# num 11662
+
+#%%
+#
