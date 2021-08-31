@@ -166,24 +166,58 @@ for i in range(n):
 
 print(max(dp))
 #%%
-# num 11055
+# num 11055 - 가장 긴 증가하는 수열(합 포)
+n = int(input())
+a = list(map(int, input().split()))
 
-# num 11722
+dp = list(x for x in a)
 
+for i in range(n):
+    for j in range(i):
+        if a[i] > a[j]:
+            dp[i] = max(dp[i], dp[j] + a[i])   # 계속 전 값과 비교.
+
+print(max(dp))
+
+
+
+#%%
+# num 11722 = 가장 긴 감소하는 수열
+n = int(input())
+a = list(map(int, input().split()))
+
+dp = [0] * (n+1)
+
+for i in range(n):
+    for j in range(i):
+        if (a[i] < a[j]) and (dp[i] < dp[j]):
+            dp[i] = dp[j]
+    dp[i] += 1
+print(max(dp))
+
+#%%
 # num 11054
 
+#%%
 # num 1912
 
+#%%
 # num 2579
 
+#%%
 # num 1699
 
+#%%
 # num 2133
 
+#%%
 # num 9461
 
+#%%
 # num 2225
 
+#%%
 # num 2011
 
+#%%
 # num 11052
