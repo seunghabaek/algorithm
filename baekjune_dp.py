@@ -196,14 +196,58 @@ for i in range(n):
 print(max(dp))
 
 #%%
-# num 11054
+# num 11054 - 가장 큰 바이토닉 수열
+n = int(input())
+a = list(map(int, input().split()))
+
+dp = [[0]*2 for _ in range(n+1)]
+
+for i in range(len(a)):
+    for j in range(i):
+        if (a[i] > a[j]) and (dp[i][0] < dp[j][0]):
+            dp[i][0] = dp[j][0]
+    dp[i][0] += 1
+
+for k in range(len(a)-1, -1, -1):
+    for l in range(len(a)-1, k-1, -1):
+        if (a[k] > a[l]) and (dp[k][1] < dp[l][1]):
+            dp[k][1] = dp[l][1]
+    dp[k][1] += 1
+
+result = [dp[i][0] + dp[i][1] for i in range(len(a))]
+print(max(result)-1)
 
 #%%
-# num 1912
+# num 1912 - 연속된 수의 합의 최댓값
+n = int(input())
+a = list(map(int, input().split()))
+
+dp = []
+
+for i in range(len(a)):
+    if i == 0:
+        dp.append(a[i])
+    else:
+        dp.append(max(a[i],  a[i]+a[i-1], a[i]+dp[i-1]))
+print(max(dp))
 
 #%%
 # num 2579
+n = int(input())
+a = list(int(input()) for i in range(n))
 
+dp = [0] * (n+1)
+
+for i in range(n):
+    if i == 0:
+        dp[i] = a[i]
+    if i == 1:
+        dp[i] = a[i] + dp[i-1]
+    elif i == 2:
+        dp[i] = a[i] + max(a[i-1], dp[i-2])
+    elif i >= 3:
+        dp[i] = a[i] + max(a[i-1] + dp[i-3], dp[i-2]) # 항상 겹치는 것이 있을지 확인. 
+print(dp[n-1])
 #%%
 # num 1699
 
