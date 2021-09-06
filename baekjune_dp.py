@@ -251,11 +251,28 @@ print(dp[n-1])
 #%%
 # num 1699
 
+
 #%%
 # num 2133
 
 #%%
 # num 9461
+
+def fibo(n):
+    dp = [0] * (n+1)
+    if n < 4:
+        dp[n] = 1
+    elif n >= 4:
+        dp[1], dp[2], dp[3] = 1, 1, 1
+        for i in range(4, n+1):
+            dp[i] = dp[i-2] + dp[i-3]
+    return dp[n]
+
+n = int(input())
+result = [int(input()) for _ in range(n)]
+
+for a in result:
+    print(fibo(a))
 
 #%%
 # num 2225
@@ -265,3 +282,6 @@ print(dp[n-1])
 
 #%%
 # num 11052
+n = int(input())
+a = list(map(int, input().split()))
+
