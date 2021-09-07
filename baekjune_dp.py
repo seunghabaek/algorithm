@@ -249,11 +249,37 @@ for i in range(n):
         dp[i] = a[i] + max(a[i-1] + dp[i-3], dp[i-2]) # 항상 겹치는 것이 있을지 확인. 
 print(dp[n-1])
 #%%
-# num 1699
+# num 1699 - 최소 갯수의 제곱 수
+# 제곱수를 빼버린다
+n = int(input())
+a = list(i*i for i in range(1, 316))
+dp = [0] *(n+1)
 
+for i in range(1, n+1):
+    s = []
+    for j in a:
+        if i < j:
+            break
+        else:
+          s.append(dp[i-j])
+    dp[i] = min(s) + 1
+print(dp[n])
 
 #%%
-# num 2133
+# num 2133 - 타일 채우기
+n = int(input())
+
+dp = [0] * (30+1)
+dp[2] = 3
+
+
+if (n >= 4) and (n % 2 == 0):
+    for i in range(4, 31, 2): # 왠만하면, 최댓값 넣어주자
+        dp[i] = dp[i-2] * dp[2]
+        for j in range(0,i-2,2):
+            dp[i] += dp[j] * 2
+        dp[i] += 2
+print(dp[n])
 
 #%%
 # num 9461
@@ -275,13 +301,54 @@ for a in result:
     print(fibo(a))
 
 #%%
-# num 2225
+# num 2225 - 합분해 
+n, k = map(int, input().split()) 
+
+def factorial(n):
+    return n * factorial(n-1) if n>1 else 1
+
+result = factorial(k+n-1) // (factorial(n) * factorial(k-1)) # 실수형은 값이 부정확할 수 있으므로 //로 나머지 없앰.
+print(int(result) % 1000000000)
 
 #%%
-# num 2011
+# num 2011 - 암호화 (예외처리) - similar to block ps
+a = list(str(input()))
+n = len(a)
+dp = [0] * (n+1)
+dp[0] = 1
+dp[1] = 1
+
+for x in a:
+    if int(x) not in [0,1,2,3,4,5,6,7,8,9]:
+        print(0)
+
+if a[0] == '0':
+    print(0)
+else:
+    for i in range(2, n+1):
+        if a[i-1] != '0':
+            dp[i] = dp[i-1]
+            if (int(a[i-2] + a[i-1]) >= 10) and (int(a[i-2] + a[i-1]) <= 26):
+                dp[i] += dp[i-2]
+        else:
+            dp[i] = 0
+            if (int(a[i-2] + a[i-1]) >= 10) and (int(a[i-2] + a[i-1]) <= 26):
+                dp[i] += dp[i-2]
+    print(dp[n]%1000000)
 
 #%%
 # num 11052
 n = int(input())
 a = list(map(int, input().split()))
+
+dp = [0] * (n+1)
+
+if n>=1:
+    for i in range(1, n+1):
+        tmp_list = []
+        for j in range(i):
+            tmp_list.append(a[i-j-1] + dp[j])
+        dp[i] = max(tmp_list)
+
+print(dp[n])
 
